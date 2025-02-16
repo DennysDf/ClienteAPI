@@ -1,3 +1,10 @@
+
+
+using ClienteAPI.Infrastructure.Context;
+using ClienteAPI.Infrastructure.Repositories;
+using ClienteAPI.Infrastructure.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +13,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContextPool<ClienteDbContext>(
+        options => options.UseSqlServer("name=ConnectionStrings:ClientesDb"));
+
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+
 
 var app = builder.Build();
 

@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Interfaces\" />
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cliente.Domain\Cliente.Domain.csproj" />
+    <ProjectReference Include="..\Cliente.Infrastructure\Cliente.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

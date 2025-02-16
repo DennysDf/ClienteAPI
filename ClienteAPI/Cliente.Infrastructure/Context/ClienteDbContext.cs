@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cliente.Infrastructure.Context;
+namespace ClienteAPI.Infrastructure.Context;
 
 public class ClienteDbContext(DbContextOptions<ClienteDbContext> options) : DbContext(options)
 {
-    public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<Domain.Models.Cliente> Clientes { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ClienteDbContext).Assembly);
+    }
 }
