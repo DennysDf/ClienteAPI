@@ -10,25 +10,15 @@ namespace ClienteAPI.Application.DTOs
     public class ClienteDTO
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Informe o nome.")]
-        [MinLength(10)]
-        [MaxLength(100)]
+        [Required]
         public string? Nome { get; set; }
-
-        [Required(ErrorMessage = "Informe o nome da mãe.")]
-        [MinLength(10)]
-        [MaxLength(100)]
+        [Required]
         public string? NomeMae { get; set; }
 
-        [Required(ErrorMessage = "Informe a data de nascimento.")]
-        [MinLength(10)]
-        [MaxLength(10)]
-        public DateOnly DataNascimento { get; set; }
+        [Required]        
+        public int Idade { get; set; }
 
-        [Required(ErrorMessage = "Informe o endereço.")]
-        [MinLength(5)]
-        [MaxLength(100)]
+        [Required]
         public string? Endereco { get; set; }
         public string? Sexo { get; set; }
         public string? EstadoCivil { get; set; }

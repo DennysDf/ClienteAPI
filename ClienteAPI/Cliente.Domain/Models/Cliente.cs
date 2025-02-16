@@ -10,7 +10,7 @@ public class Cliente : ModelBase
 {
     public string? Nome { get; set; }
     public string? NomeMae { get; set; }
-    public DateOnly DataNascimento { get; set; }
+    public int Idade { get; set; }
     public string? Endereco { get; set; }
     public string? Sexo { get; set; }
     public string? EstadoCivil { get; set; }

@@ -14,9 +14,12 @@ public class ClienteMapper : IEntityTypeConfiguration<Cliente>
     public void Configure(EntityTypeBuilder<Cliente> builder)
     {
         builder.HasKey(x => x.Id);
+        
+        builder.Property(c => c.CreatedDate)
+              .HasDefaultValue(DateTime.Now);
 
-        builder.Property(x => x.CreatedDate)
-            .IsRequired();
+        builder.Property(c => c.Active)
+            .HasDefaultValue(true);
 
         builder.Property(x => x.UpdatedDate)
             .IsRequired(false);
@@ -30,7 +33,7 @@ public class ClienteMapper : IEntityTypeConfiguration<Cliente>
         builder.Property(x => x.NomeMae)
             .IsRequired();
 
-        builder.Property(x => x.DataNascimento)
+        builder.Property(x => x.Idade)
             .IsRequired();
 
         builder.Property(x => x.Endereco)
